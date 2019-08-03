@@ -66,16 +66,46 @@ backgroundTransition: 'zoom'
 ### クラス
 
 ```plantuml
-
+@startuml
  Symfony\Component\HttpFoundation\Request <|-- Illuminate\Http\Request
-
-
-
+@enduml
 ```
+--
+
+### リクエストの取得方法
+
+1. ファサードを利用する
+    - Input ファサード
+    - Request ファサード
+2. DI を利用する
+    - コンストラクタインジェクション
+    - メソッドインジェクション
+3. フォームリクエストを利用する
 
 ---
 
 ### 4-1-2 Inputファサード・Requestファサード
+
+- Inputファサードと Requestファサードはほとんど同じ使い方
+- Input::get メソッドのみ異なる
+
+--
+
+### Input ファサード
+
+```php
+// name キーでリクエストから値を取得する
+$name = Input::get('name');
+
+// name キーがない場合「guest」を返す
+$name = Input::get('name', 'guest');
+```
+
+--
+
+### Inputファサードの実装
+
+- Illuminate\Support\Facades\Input に実装されている
 
 ---
 
