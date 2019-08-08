@@ -108,15 +108,17 @@ $name = Input::get('name', 'guest');
 
 ### Inputファサードの実装
 
-- サービスコンテナでは、文字列`request`と`Illuminate\Http\Request`クラスをバインドしている
-- getFacadeAccessor メソッド内で文字列`request`をサービスコンテナに渡す
-  - `Illuminate\Support\Facades\Input`内に実装
+- 中身は、Illuminate\Http\Request クラスを利用している
+    - サービスコンテナでは、文字列`request`と`Illuminate\Http\Request`クラスをバインドしている
+    - getFacadeAccessor メソッド内で文字列`request`をサービスコンテナに渡す
+    - `Illuminate\Support\Facades\Input`内に実装
 
 --
 
 ### Requestファサードの実装
 
-- Inputファサードと同様に文字列`request`をサービスコンテナにわたす
+- 中身は、Illuminate\Http\Request クラスを利用している
+    - Inputファサードと同様に文字列`request`をサービスコンテナにわたす
 
 --
 
@@ -219,6 +221,7 @@ class UserController extends Controller
 ```php
 final class PayloadAction
 {
+    // Request が json リクエストの場合
     public function __invoke(Request $request)
     {
         $result = $request->json('nested');
@@ -354,10 +357,10 @@ class UserRegistPost extends FormRequest
 ### 4-2-2 バリデーションルール
 
 - デフォルトで、様々な種類のバリデーションルールが用意されている
-    1. 値の存在確認を行うルール
-    2. 型やフォーマット確認を行うルール
-    3. 桁数や文字列、サイズ確認をおkの合うルール
-    4. 他の対象との比較を行うルール
+    1. 値の存在確認を
+    2. 型やフォーマット確認
+    3. 桁数や文字列、サイズ確認
+    4. 他の対象との比較
     5. バリデーション処理に対するルール
 
 --
