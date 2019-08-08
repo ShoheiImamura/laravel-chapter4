@@ -70,6 +70,7 @@ backgroundTransition: 'zoom'
  Symfony\Component\HttpFoundation\Request <|-- Illuminate\Http\Request
 @enduml
 ```
+
 --
 
 ### リクエストの取得方法
@@ -88,6 +89,8 @@ backgroundTransition: 'zoom'
 
 - Inputファサードと Requestファサードはほとんど同じ使い方
 - Input::get メソッドのみ異なる
+
+※なぜ get メソッドのみ追加されているのかは、ごめんなさい、わかりません。。。（今村）
 
 --
 
@@ -679,3 +682,14 @@ function($inputs){
     return $input->mailmagezine == 'allow';
 });
 ```
+
+### apendix
+
+- [
+Laravel 5.5 HTTPリクエスト
+](https://readouble.com/laravel/5.5/ja/requests.html)
+- [Laravel 5.5 サービスコンテナ
+](https://readouble.com/laravel/5.5/ja/container.html)
+- [
+Laravel 5.5 バリデーション
+](https://readouble.com/laravel/5.5/ja/validation.html)
